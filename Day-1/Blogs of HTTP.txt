@@ -1,1 +1,34 @@
-                                    "The Blogs of HTTP"
+                                                                                     "The Blogs of HTTP"
+
+
+Introduction:
+             HTTP stand for hyper text transfer protocol which is used in client-side communication.
+             By using HTTP, the user/client can sent a request to the server and the server will sent a response back 
+             to the user/client.
+             They are several different development of HTTP but in this blog we mainly focusing on HTTP 1.1 and HTTP 2.
+
+
+--> HTTP 1.1:
+             HTTP 1.1 was created in 1997, If you make a request to the server for specific url like www.zenClass.html page and the server response back the url to you
+             before sending request and the response there is a TCP connection which established between the client and server. Again if you make a request to the server 
+             for some like url like www.zenClass.image.img page and the server response you back the url with image data.The connection was not lost here because we added 
+             keep live header which is the part of the request so there is a open connection between the client and server. There is a persistent connection like the request 
+             and the response are merged in a single line.these are the drawbacks of the http 1.1 protocol.
+               * The first issue is its transfer the request and the response in a single text format
+               * The second issue is is head of line blocking in which TCP connection is blocked all other requests until the response does not receive.
+
+--> HTTP 2  :
+             HTTP/2 was developed over the SPDY protocol. HTTP/2 works on the binary framing layer instead of textual that converts all the messages in binary format.
+            it works on fully multiplexed that is one TCP connection is used for multiple requests. HTTP/2 uses HPACK which is used to split data from header. it compresses
+            the header. The server sends all the other files like CSS & JS without the request of the client using the PUSH frame.
+
+
+
+
+                                                             HTTP/1.1                                                     HTTP/2
+
+                                             * It works on the textual format.	                                      * It works on the binary protocol.
+                                    * There is head of line blocking that blocks all 
+                                    the requests behind it until it doesn’t get its all resources.	                * It allows multiplexing so one TCP connection is required for multiple requests.
+                                    * It uses requests resource Inlining for use getting multiple pages	            * It uses PUSH frame by server that collects all multiple pages 
+                                         * It compresses data by itself.	                                          * It uses HPACK for data compression.

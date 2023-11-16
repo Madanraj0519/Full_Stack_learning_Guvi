@@ -1,0 +1,58 @@
+OBJECTS:
+
+       Objects in javascript are different then premitive-data types(number,string,boolean,etc.).while Premitive date-types 
+       store single value each depending on their types.Objects can contain other objects and arrays as properties.Objects are more
+       complex and each objects may contain any comination of premitive data-types.
+
+Creating Objects:
+                 we can creat an object literal notation or using the 'object' constructor
+                 Object Literal Notation:
+                var obj = {
+                   name:"John", 
+                   age:30, 
+                   city:"New York"
+                   };
+                Using object constructor:
+                var obj = new Object();
+                 obj.name="John";
+                obj.age=30;
+                 obj.city="New York";
+
+Accesing internal properties:
+                     You can access the internal properties of an object using dot (".")notation or square bracket notation:
+                     console.log(obj.name); // output: John
+
+Modifying internal properties:
+                    To modify a property you just need to assign it a value again:
+                    obj.name="Jane";
+                    console.log(obj.name); // output: Jane
+
+Adding New Internal Properties:
+                    You can add new internal properties to an object at any time:
+                    obj.gender="Male";
+                    console.log(obj.gender); // output: Male
+
+Deleting Internal Properties:
+                    You can delete internal properties using the 'delete' keyword:
+                    delete obj.age;
+                    console.log(obj.age); // output: undefined
+
+Nested Objects:
+               Objects can contain other objects as internal properties, forming nested structures:
+                   var person={
+                   firstName:"John",
+                   lastName:"Doe",
+                   address:{
+                      streetAddress:"12345 Main St.",
+                      city:"Anytown",
+                      state:"CA",
+                      }
+                     };
+                   console.log(person.address.city); // output: Anytown
+
+
+                   
+
+Understanding objects and their attributes is critical when working with JavaScript since many complicated 
+data structures and capabilities are built on these ideas. Whether you're working with data, establishing APIs, 
+or designing user interfaces, a good understanding of objects in JavaScript is essential.
