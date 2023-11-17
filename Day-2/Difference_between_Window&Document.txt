@@ -1,0 +1,47 @@
+                                                       Difference Between Window and Document Object
+
+Window object :- 
+               Window object is the main javascript object root, like it is a global object in the browser. It is purely has browser functionality.
+               
+               Well, the window is the first thing that gets loaded in the browser. This window object has properties likes length, innerWidth, innerHeight,
+               name, parent,etc..
+
+               Each browser tab has its own top-level window object. Each <iframe> element has its own window object too, which is nested inside the window.
+
+               Each of the window gets its own separate global object.
+
+               Thus, the window.window always refer to the window object but the window.parent and window.top might refer to the enclosing window, which giving 
+               access to the other execution context.
+
+               Window object has properties like browser history, location and the device’s screen etc. In case of multi tab browser, a window object represents 
+               a single tab, but some of its properties like innerHeight, innerWidth and methods like resizeTo() will affect the whole browser window.
+
+               some other properties are,
+                    -> setTimeout() & setInterval() ---- event handler to timer
+                    -> location ---- giving the current URL
+                    -> navigator ---- describing the browser software
+
+Document Object :- 
+                 Document is the main object of the Document object model (DOM).
+
+                 The document object is that is your HTML, ASPX, PHP or other document that will be loaded into the browser.
+
+                 The document gets loaded inside the window object and has properties available to it like title, URL, cookies, etc..
+
+                 This means if you want to access a property for the window it is window.property and if it is document then it is window.document property.
+
+                 The document object represents the whole html document as a tree of Objects(HTML, HEAD, BODY, and other HTML tags). It is the root element that 
+                 represents the html document.
+
+                 Each window object has a document object to be rendered. These objects gets confused in past because HTML elements are added to the global object
+                 when assigned to a unique ID. 
+                                             EX :- 
+                                                <body>
+                                                   <p id="para"> This is a paragraph </p>
+                                                </body>
+
+                                        These element can be refer by,
+                                          -> window.para (or) window["para"]
+                                          -> window.getElementById("para")
+                                          -> window.querySelector("para")
+                                          -> document.body.child;
