@@ -1,0 +1,23 @@
+
+.card-flip {
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.card-flip.flip {
+    transform: rotateX(180deg);
+}
+/*  */
+.card-front,
+.card-back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.card-back {
+    transform: rotateX(180deg);
+}
