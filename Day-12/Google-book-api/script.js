@@ -33,7 +33,7 @@ const createCard = (data) => {
 }
 
 
-fetch(`https://www.googleapis.com/books/v1/volumes?q=fullstack1:keyes&key=${apikey}`)
+fetch(`https://www.googleapis.com/books/v1/volumes?q=fullstack:keyes&key=${apikey}`)
      .then(response => response.json())
      .then(data => {
       createCard(data.items);
