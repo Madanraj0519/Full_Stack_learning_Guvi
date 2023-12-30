@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Information Aggregator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            padding: 5px;
+        }
+        #result {
+            margin-top: 20px;
+        }
+        #loading {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Weather Information Aggregator</h1>
+
+    <label for="city">Enter City:</label>
+    <input type="text" id="city" placeholder="Enter city name">
+    <button onclick="getWeather()">Get Weather</button>
+
+    <div id="loading">Loading...</div>
+
+    <div id="result"></div>
+
+    <script>
+        async function getWeather() {
+            const cityInput = document.getElementById('city');
+            const cityName = cityInput.value;
+
+            if (!cityName) {
+                alert('Please enter a city name.');
+                return;
+            }
+
+            // Disable input and button during fetching
+            cityInput.disabled = true;
+            document.querySelector('button').disabled = true;
+            document.getElementById('loading').style.display = 'block';
+
+            try {
+                // Fetch data from multiple weather APIs concurrently
+                const [api1Data, api2Data] = await Promise.all([
+                    fetchWeatherFromAPI1(cityName),
+                    fetchWeatherFromAPI2(cityName),
+                ]);
+
+                // Process and display the data
+               setTimeout(() => {
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `
+                    <h2>Weather Information for ${cityName}</h2>
+                    <p>From API 1: ${api1Data.temperature}°C, ${api1Data.conditions}</p>
+                    <p>From API 2: ${api2Data.temperature}°C, ${api2Data.conditions}</p>
+                `;
+
+
+               }, 1000);
+
+                  // Enable input and button after fetching is complete
+                cityInput.disabled = false;
+                document.querySelector('button').disabled = false;
+                document.getElementById('loading').style.display = 'none';
+                cityInput.value = '';
+          
+       
+            } catch (error) {
+                // Display error message to the user
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `<p style="color: red;">Error fetching weather data: ${error.message}</p>`;
+
+                // Enable input and button after fetching is complete
+                cityInput.disabled = false;
+                document.querySelector('button').disabled = false;
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+
+        async function fetchWeatherFromAPI1(city) {
+            const apiKey = '3fc8a028655f363852aca1b09b46c610'; // Replace with actual API key
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
+            const data = await response.json();
+            
+            if (response.ok) {
+                return {
+                    temperature: data.main.temp,
+                    conditions: data.weather[0].description,
+                };
+            } else {
+                throw new Error(`API 1 Error: ${data.message}`);
+            }
+        }
+
+        async function fetchWeatherFromAPI2(city) {
+            const apiKey = 'b9141321279553565883597483a12f31'; // Replace with actual API key
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
+            const data = await response.json();
+            console.log(data.main.temp_max);
+
+            if (response.ok) {
+                return {
+                    temperature: data.main.temp_max,
+                    conditions: data.main.temp_max,
+                };
+            } else {
+                throw new Error(`API 2 Error: ${data.message}`);
+            }
+        }
+    </script>
+
+</body>
+</html>
