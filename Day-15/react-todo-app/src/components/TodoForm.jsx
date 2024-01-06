@@ -72,7 +72,7 @@ const TodoForm = ({todo, setTodo, setEditTodo, editTodo}) => {
         <button className='btn btn-success w-100'>ADD</button>
     </div>
 
-  </form>
+    </form>
   )
 }
 
