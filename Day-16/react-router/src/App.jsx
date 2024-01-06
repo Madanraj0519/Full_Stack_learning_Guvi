@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './Components/Navbar/navbar';
+import Navbar from './components/Navbar/navbar';
 import All from './Components/All/all';
 import FSD from './Components/FSD/fullStackDevelopment';
 import DataScience from './Components/DataScience/dataScience';
