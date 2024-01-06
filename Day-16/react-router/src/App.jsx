@@ -1,12 +1,12 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/navbar';
-import All from './Components/All/all';
-import FSD from './Components/FSD/fullStackDevelopment';
-import DataScience from './Components/DataScience/dataScience';
-import CyberSecurity from './Components/CyberSecurity/cyberSecurity';
-import Career from './Components/Career/career';
-import Footer from './Components/Footer/footer';
+import All from './components/All/all';
+import FSD from './components/FSD/fullStackDevelopment';
+import DataScience from './components/DataScience/dataScience';
+import CyberSecurity from './components/CyberSecurity/cyberSecurity';
+import Career from './components/Career/career';
+import Footer from './components/Footer/footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 
