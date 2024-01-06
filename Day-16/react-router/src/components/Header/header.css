@@ -1,0 +1,12 @@
+.header{
+    margin-top: 5px;
+    min-height: 10rem;
+    width: 100%;
+    background-color: white;
+    margin-bottom: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2{
+    font-size: 35px;
+}

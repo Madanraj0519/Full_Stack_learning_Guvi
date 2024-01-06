@@ -1,0 +1,23 @@
+.blogs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blogs-route{
+    font-weight: 600;
+}
+
+.blogs-route:hover{
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: green;
+    text-decoration-thickness: 2px;
+}
+
+.nav-style{
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 0.2;
+}

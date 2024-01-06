@@ -1,0 +1,14 @@
+.heading-nav{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 3em;
+    font-weight: 500;
+}
+
+.navbar{
+    background-color:  transparent;
+}
+
+.navbar-nav{
+  
+}
