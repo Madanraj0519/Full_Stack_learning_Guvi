@@ -1,13 +1,13 @@
 {
-  "name": "basiccurd",
+  "name": "bookinghall",
   "version": "1.0.0",
-  "description": "just for practices",
+  "description": "\"Created a hall booking api",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js"
   },
-  "author": "Madan",
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.20.2",
