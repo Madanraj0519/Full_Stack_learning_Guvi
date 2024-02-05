@@ -4,8 +4,27 @@ const VenueModel = require('../model/Venue.model');
 const BookingModel = require('../model/Booking.model');
 
 
-// list out the customers with booked data
+// get the customer details
 CustomerRouter.get('/', async(req, res) => {
+  // console.log(CustomerModel);
+try{
+  const customers = await CustomerModel.find()
+
+  res.status(200).json({
+      message : "Customer data was successfully fetched",
+      data : customers
+  })
+
+}catch(err){
+  res.status(400).json({
+    error : err.message
+})
+}
+});
+
+
+// list out the customers with booked data
+CustomerRouter.get('/booked-data', async(req, res) => {
     // console.log(CustomerModel);
 try{
     const customers = await CustomerModel.find({})
@@ -40,17 +59,19 @@ try{
     }));
 
     res.status(200).json({
-        message : "Customer data was successfully fetched",
+        message : "Customer data with booked details was successfully fetched",
         data : formattedData
     })
 
 }catch(err){
-
+  res.status(400).json({
+    error : err.message
+})
 }
 });
 
 
-
+// lis out the customer with the count of booked data
 CustomerRouter.get('/:customerId', async (req, res) => {
   try {
     const { customerId } = req.params;
@@ -84,6 +105,7 @@ CustomerRouter.get('/:customerId', async (req, res) => {
     }));
 
     res.status(200).json({ 
+        message : "Customer data with the count of booked details was successfully fetched",
         customerId,  
         customerName : customer.name,
         bookingCount,
@@ -95,7 +117,7 @@ CustomerRouter.get('/:customerId', async (req, res) => {
 });
 
 
-
+// create the customer
 CustomerRouter.post('/create', async(req, res) => {
     
     try{
