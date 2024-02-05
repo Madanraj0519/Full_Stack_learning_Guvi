@@ -4,8 +4,28 @@ const bookingModel = require('../model/Booking.model');
 const CustomerModel = require('../model/Customer.model');
 
 
-// list out the rooms with booked data
+
+
 VenueRouter.get('/', async(req, res) => {
+    // console.log(CustomerModel);
+  try{
+    const Venue = await VenueModel.find()
+  
+    res.status(200).json({
+        message : "Customer data was successfully fetched",
+        data : Venue 
+    })
+  
+  }catch(err){
+    res.status(400).json({
+      error : err.message
+  })
+  }
+  });
+
+
+// list out the rooms with booked data
+VenueRouter.get('/booked-data', async(req, res) => {
     
     try{
     const rooms = await VenueModel.find({})
