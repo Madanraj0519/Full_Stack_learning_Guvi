@@ -8,7 +8,7 @@ HTTP_SERVER.use(bodyparser.json());
 
 connectDatabase();
 
-HTTP_SERVER.listen(PORT, () => {
+HTTP_SERVER.listen(PORT, process.env.HOST_NAME,  () => {
     console.log(`Starting on port http://localhost:${PORT}`);
 });
 
